@@ -1,10 +1,10 @@
-package com.giacom.simple_workflow
+package com.giacom.simpletask
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SimpleWorkflowApplicationTests {
+class SimpleTaskApplicationTests {
 
 	@Test
 	fun contextLoads() {

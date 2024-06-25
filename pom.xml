@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.giacom</groupId>
-	<artifactId>simple-workflow</artifactId>
+	<artifactId>simple-task-library</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>simple-workflow-library</name>
-	<description>Simple library for controlling workflow</description>
+	<name>simple-task-library</name>
+	<description>Simple task library for controlling process automation</description>
 
 	<properties>
 		<java.version>21</java.version>

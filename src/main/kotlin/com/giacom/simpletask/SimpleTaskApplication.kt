@@ -1,11 +1,11 @@
-package com.giacom.simple_workflow
+package com.giacom.simpletask
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class IntegrationWorkflowLibraryApplication
+class SimpleTaskApplication
 
 fun main(args: Array<String>) {
-	runApplication<IntegrationWorkflowLibraryApplication>(*args)
+	runApplication<SimpleTaskApplication>(*args)
 }

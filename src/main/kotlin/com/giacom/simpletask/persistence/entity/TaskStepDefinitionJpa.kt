@@ -1,15 +1,15 @@
-package com.giacom.simple_workflow.persistence.entity
+package com.giacom.simpletask.persistence.entity
 
 import jakarta.persistence.*
 
 @Entity
-data class TaskDefinitionJpa(
+data class TaskStepDefinitionJpa(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
     val name: String,
     val description: String,
     @ManyToOne
-    @JoinColumn(name = "process_id")
-    val process: ProcessDefinitionJpa,
+    @JoinColumn(name = "task_definition_id")
+    val taskDefinition: TaskDefinitionJpa,
     val handler: String? = null
 )
