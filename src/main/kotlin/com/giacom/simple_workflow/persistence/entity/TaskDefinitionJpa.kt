@@ -3,10 +3,13 @@ package com.giacom.simple_workflow.persistence.entity
 import jakarta.persistence.*
 
 @Entity
-data class ProcessDefinition(
+data class TaskDefinitionJpa(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
     val name: String,
-    @OneToMany(mappedBy = "process", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    val tasks: List<TaskDefinition> = mutableListOf()
+    val description: String,
+    @ManyToOne
+    @JoinColumn(name = "process_id")
+    val process: ProcessDefinitionJpa,
+    val handler: String? = null
 )
