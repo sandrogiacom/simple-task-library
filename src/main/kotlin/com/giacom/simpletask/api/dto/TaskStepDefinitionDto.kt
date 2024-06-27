@@ -1,6 +1,6 @@
 package com.giacom.simpletask.api.dto
 
-import com.giacom.simpletask.domain.TaskDefinition
+import com.giacom.simpletask.application.core.domain.TaskDefinition
 
 data class TaskStepDefinitionDto(
     val id: Long = 0,
