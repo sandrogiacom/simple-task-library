@@ -8,7 +8,7 @@ data class TaskStepDefinitionBuilder(
     val stepName: String = "",
     val stepDescription: String = "",
     val taskDefinition: TaskDefinition,
-    val handler: String? = ""
+    val stepHandler: String? = ""
 ) {
     fun build(): TaskStepDefinition {
         return TaskStepDefinition(
@@ -16,7 +16,7 @@ data class TaskStepDefinitionBuilder(
             stepName = stepName,
             stepDescription = stepDescription,
             taskDefinition = taskDefinition,
-            handler = handler
+            stepHandler = stepHandler
         )
     }
 }

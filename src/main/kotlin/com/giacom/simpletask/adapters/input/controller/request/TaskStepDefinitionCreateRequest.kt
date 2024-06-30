@@ -2,9 +2,10 @@ package com.giacom.simpletask.adapters.input.controller.request
 
 import jakarta.validation.constraints.NotBlank
 
-data class TaskDefinitionCreateRequest(
+data class TaskStepDefinitionCreateRequest(
     @NotBlank
-    val taskName: String,
+    val stepName: String,
     @NotBlank
-    val taskDescription: String
+    val stepDescription: String,
+    val stepHandler: String? = null
 )

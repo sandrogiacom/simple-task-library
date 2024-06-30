@@ -1,9 +1,9 @@
 package com.giacom.simpletask.adapters.output
 
-import com.giacom.simpletask.adapters.out.repository.mapper.TaskDefinitionEntityMapper
 import com.giacom.simpletask.adapters.output.repository.TaskDefinitionRepository
+import com.giacom.simpletask.adapters.output.repository.mapper.TaskDefinitionEntityMapper
 import com.giacom.simpletask.application.core.domain.TaskDefinition
-import com.giacom.simpletask.application.ports.out.FindTaskDefinitionOutput
+import com.giacom.simpletask.application.ports.output.FindTaskDefinitionOutput
 import org.springframework.stereotype.Component
 import java.util.*
 

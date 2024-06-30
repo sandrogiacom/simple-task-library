@@ -1,6 +1,6 @@
 package com.giacom.simpletask.application.core.usecase
 
-import com.giacom.simpletask.application.ports.out.CreateTaskDefinitionOutput
+import com.giacom.simpletask.application.ports.output.CreateTaskDefinitionOutput
 import com.giacom.simpletask.builder.TaskDefinitionBuilder
 import com.giacom.simpletask.builder.TaskStepDefinitionBuilder
 import io.mockk.every
@@ -33,7 +33,7 @@ class CreateTaskDefinitionUseCaseTest {
                 stepName = "Task Step 1",
                 stepDescription = "Task Step 1 description",
                 taskDefinition = taskDefinition,
-                handler = "Task Step 1 handler"
+                stepHandler = "Task Step 1 handler"
             ).build()
         )
         taskDefinition.addTaskStep(
@@ -42,7 +42,7 @@ class CreateTaskDefinitionUseCaseTest {
                 stepName = "Task Step 2",
                 stepDescription = "Task Step 2 description",
                 taskDefinition = taskDefinition,
-                handler = "Task Step 2 handler"
+                stepHandler = "Task Step 2 handler"
             ).build()
         )
 
@@ -53,7 +53,7 @@ class CreateTaskDefinitionUseCaseTest {
         assertThat(create.id).isEqualTo(1)
         assertThat(create.taskName).isEqualTo("Task 1")
         assertThat(create.taskDescription).isEqualTo("Task 1 description")
-        assertThat(create.taskSteps.size).isEqualTo(2)
+        assertThat(create.taskSteps?.size).isEqualTo(2)
 
         verify { createTaskDefinitionOutput.create(any()) }
 

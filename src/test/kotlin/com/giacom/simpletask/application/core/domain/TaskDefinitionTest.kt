@@ -22,7 +22,7 @@ class TaskDefinitionTest {
                 stepName = "Task Step 1",
                 stepDescription = "Task Step 1 description",
                 taskDefinition = taskDefinition,
-                handler = "Task Step 1 handler"
+                stepHandler = "Task Step 1 handler"
             ).build()
         )
         taskDefinition.addTaskStep(
@@ -31,7 +31,7 @@ class TaskDefinitionTest {
                 stepName = "Task Step 2",
                 stepDescription = "Task Step 2 description",
                 taskDefinition = taskDefinition,
-                handler = "Task Step 2 handler"
+                stepHandler = "Task Step 2 handler"
             ).build()
         )
 

@@ -1,4 +1,4 @@
-package com.giacom.simpletask.application.ports.out
+package com.giacom.simpletask.application.ports.output
 
 import com.giacom.simpletask.application.core.domain.TaskDefinition
 import java.util.*

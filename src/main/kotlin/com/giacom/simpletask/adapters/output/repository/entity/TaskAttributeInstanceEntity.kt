@@ -1,11 +1,9 @@
-package com.giacom.simpletask.adapters.out.repository.entity
+package com.giacom.simpletask.adapters.output.repository.entity
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
+@Table(name = "task_attribute_instance")
 data class TaskAttributeInstanceEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,

@@ -1,6 +1,6 @@
 package com.giacom.simpletask.config
 
-import com.giacom.simpletask.adapters.output.InsertTaskDefinitionAdapter
+import com.giacom.simpletask.adapters.output.CreateTaskDefinitionAdapter
 import com.giacom.simpletask.application.core.usecase.CreateTaskDefinitionUseCase
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 class CreateTaskDefinitionConfig {
 
     @Bean
-    fun createTaskDefinitionInput(adapter: InsertTaskDefinitionAdapter): CreateTaskDefinitionUseCase {
+    fun createTaskDefinitionInput(adapter: CreateTaskDefinitionAdapter): CreateTaskDefinitionUseCase {
         return CreateTaskDefinitionUseCase(adapter)
     }
 
