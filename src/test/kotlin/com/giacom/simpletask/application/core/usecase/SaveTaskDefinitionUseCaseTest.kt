@@ -1,6 +1,6 @@
 package com.giacom.simpletask.application.core.usecase
 
-import com.giacom.simpletask.application.ports.output.CreateTaskDefinitionOutput
+import com.giacom.simpletask.application.ports.output.SaveTaskDefinitionOutput
 import com.giacom.simpletask.builder.TaskDefinitionBuilder
 import com.giacom.simpletask.builder.TaskStepDefinitionBuilder
 import io.mockk.every
@@ -9,11 +9,11 @@ import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class CreateTaskDefinitionUseCaseTest {
+class SaveTaskDefinitionUseCaseTest {
 
-    private val createTaskDefinitionOutput = mockk<CreateTaskDefinitionOutput>()
-    private val createTaskDefinitionUseCase = CreateTaskDefinitionUseCase(
-        createTaskDefinitionOutput
+    private val saveTaskDefinitionOutput = mockk<SaveTaskDefinitionOutput>()
+    private val saveTaskDefinitionUseCase = SaveTaskDefinitionUseCase(
+        saveTaskDefinitionOutput
     )
 
     @Test
@@ -25,7 +25,7 @@ class CreateTaskDefinitionUseCaseTest {
             taskDescription = "Task 1 description",
         ).build()
 
-        every { createTaskDefinitionOutput.create(any()) } returns taskDefinition
+        every { saveTaskDefinitionOutput.save(any()) } returns taskDefinition
 
         taskDefinition.addTaskStep(
             TaskStepDefinitionBuilder(
@@ -47,7 +47,7 @@ class CreateTaskDefinitionUseCaseTest {
         )
 
         // When
-        val create = createTaskDefinitionUseCase.create(taskDefinition)
+        val create = saveTaskDefinitionUseCase.save(taskDefinition)
 
         // Then
         assertThat(create.id).isEqualTo(1)
@@ -55,7 +55,7 @@ class CreateTaskDefinitionUseCaseTest {
         assertThat(create.taskDescription).isEqualTo("Task 1 description")
         assertThat(create.taskSteps?.size).isEqualTo(2)
 
-        verify { createTaskDefinitionOutput.create(any()) }
+        verify { saveTaskDefinitionOutput.save(any()) }
 
     }
 

@@ -4,10 +4,8 @@ spring:
   datasource:
     driver-class-name: org.h2.Driver
     name: tasks_db
-    url: jdbc:h2:file:~/tasks_db
-  h2:
-    console:
-      enabled: true
+    url: jdbc:h2:mem:tasks_db
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:

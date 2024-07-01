@@ -2,8 +2,8 @@ package com.giacom.simpletask.application.ports.output
 
 import com.giacom.simpletask.application.core.domain.TaskStepDefinition
 
-interface CreateTaskStepDefinitionOutput {
+interface SaveTaskStepDefinitionOutput {
 
-    fun create(taskStepDefinition: TaskStepDefinition): TaskStepDefinition
+    fun save(taskStepDefinition: TaskStepDefinition): TaskStepDefinition
 
 }
