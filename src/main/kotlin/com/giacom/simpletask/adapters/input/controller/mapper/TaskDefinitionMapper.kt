@@ -12,4 +12,5 @@ interface TaskDefinitionMapper {
 
     fun toResponse(taskDefinition: TaskDefinition): TaskDefinitionResponse
 
+    fun toResponseList(taskDefinitions: List<TaskDefinition>): List<TaskDefinitionResponse>
 }

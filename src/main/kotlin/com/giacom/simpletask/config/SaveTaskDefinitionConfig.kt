@@ -1,7 +1,8 @@
 package com.giacom.simpletask.config
 
-import com.giacom.simpletask.adapters.output.SaveTaskDefinitionAdapter
 import com.giacom.simpletask.application.core.usecase.SaveTaskDefinitionUseCase
+import com.giacom.simpletask.application.ports.output.FindTaskDefinitionOutput
+import com.giacom.simpletask.application.ports.output.SaveTaskDefinitionOutput
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -9,8 +10,11 @@ import org.springframework.context.annotation.Configuration
 class SaveTaskDefinitionConfig {
 
     @Bean
-    fun saveTaskDefinitionInput(adapter: SaveTaskDefinitionAdapter): SaveTaskDefinitionUseCase {
-        return SaveTaskDefinitionUseCase(adapter)
+    fun saveTaskDefinitionInput(
+        saveTaskDefinitionOutput: SaveTaskDefinitionOutput,
+        findTaskDefinitionOutput: FindTaskDefinitionOutput
+    ): SaveTaskDefinitionUseCase {
+        return SaveTaskDefinitionUseCase(saveTaskDefinitionOutput, findTaskDefinitionOutput)
     }
 
 }

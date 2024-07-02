@@ -12,4 +12,8 @@ class FindTaskDefinitionUseCase(
         return findTaskDefinitionOutput.findById(id).orElseThrow { RuntimeException("Task definition not found") }
     }
 
+    override fun findAll(): List<TaskDefinition> {
+        return findTaskDefinitionOutput.findAll()
+    }
+
 }

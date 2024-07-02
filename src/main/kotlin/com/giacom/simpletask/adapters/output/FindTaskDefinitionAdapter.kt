@@ -18,4 +18,8 @@ class FindTaskDefinitionAdapter(
         return taskDefinitionEntity.map { mapper.toDomain(it) }
     }
 
+    override fun findAll(): List<TaskDefinition> {
+        return repository.findAll().map { mapper.toDomain(it) }
+    }
+
 }

@@ -19,13 +19,25 @@ class TaskDefinitionController(
 
     @PostMapping
     fun create(@Valid @RequestBody request: TaskDefinitionCreateRequest): ResponseEntity<TaskDefinitionResponse> {
-        val taskDefinition = createInput.save(mapper.toDomain(request))
+        val taskDefinition = createInput.create(mapper.toDomain(request))
         return ResponseEntity.ok(mapper.toResponse(taskDefinition))
     }
 
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Long): ResponseEntity<TaskDefinitionResponse> {
         val taskDefinition = findInput.findById(id)
+        return ResponseEntity.ok(mapper.toResponse(taskDefinition))
+    }
+
+    @GetMapping
+    fun findAll(): ResponseEntity<List<TaskDefinitionResponse>> {
+        val taskDefinitions = findInput.findAll()
+        return ResponseEntity.ok(mapper.toResponseList(taskDefinitions))
+    }
+
+    @PutMapping("/{id}")
+    fun update(@PathVariable id: Long, @Valid @RequestBody request: TaskDefinitionCreateRequest): ResponseEntity<TaskDefinitionResponse> {
+        val taskDefinition = createInput.update(id, mapper.toDomain(request))
         return ResponseEntity.ok(mapper.toResponse(taskDefinition))
     }
 

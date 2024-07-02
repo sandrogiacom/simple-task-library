@@ -4,6 +4,7 @@ import com.giacom.simpletask.application.core.domain.TaskDefinition
 
 interface SaveTaskDefinitionInput {
 
-    fun save(taskDefinition: TaskDefinition): TaskDefinition
+    fun create(taskDefinition: TaskDefinition): TaskDefinition
+    fun update(id: Long, taskDefinition: TaskDefinition): TaskDefinition
 
 }

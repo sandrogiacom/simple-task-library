@@ -5,4 +5,5 @@ import java.util.*
 
 interface FindTaskDefinitionOutput {
     fun findById(id: Long): Optional<TaskDefinition>
+    fun findAll(): List<TaskDefinition>
 }
