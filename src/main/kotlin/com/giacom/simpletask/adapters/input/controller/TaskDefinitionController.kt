@@ -44,7 +44,7 @@ class TaskDefinitionController(
     }
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: Long): ResponseEntity<Void> {
+    fun delete(@PathVariable id: Long): ResponseEntity<Unit> {
         deleteInput.deleteById(id)
         return ResponseEntity.noContent().build()
     }

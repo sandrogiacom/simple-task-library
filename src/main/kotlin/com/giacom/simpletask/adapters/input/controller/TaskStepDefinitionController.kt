@@ -46,7 +46,7 @@ class TaskStepDefinitionController(
     }
 
     @DeleteMapping("/steps/{id}")
-    fun deleteStep(@PathVariable id: Long): ResponseEntity<Void> {
+    fun deleteStep(@PathVariable id: Long): ResponseEntity<Unit> {
         deleteStepInput.deleteById(id)
         return ResponseEntity.noContent().build()
     }
