@@ -3,6 +3,7 @@ package com.giacom.simpletask.adapters.input.controller
 import com.giacom.simpletask.adapters.input.controller.mapper.TaskDefinitionMapper
 import com.giacom.simpletask.adapters.input.controller.request.TaskDefinitionCreateRequest
 import com.giacom.simpletask.adapters.input.controller.response.TaskDefinitionResponse
+import com.giacom.simpletask.application.ports.input.DeleteTaskDefinitionInput
 import com.giacom.simpletask.application.ports.input.SaveTaskDefinitionInput
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import jakarta.validation.Valid
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*
 class TaskDefinitionController(
     private val createInput: SaveTaskDefinitionInput,
     private val findInput: FindTaskDefinitionInput,
+    private val deleteInput: DeleteTaskDefinitionInput,
     private val mapper: TaskDefinitionMapper
 ) {
 
@@ -39,6 +41,12 @@ class TaskDefinitionController(
     fun update(@PathVariable id: Long, @Valid @RequestBody request: TaskDefinitionCreateRequest): ResponseEntity<TaskDefinitionResponse> {
         val taskDefinition = createInput.update(id, mapper.toDomain(request))
         return ResponseEntity.ok(mapper.toResponse(taskDefinition))
+    }
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Long): ResponseEntity<Void> {
+        deleteInput.deleteById(id)
+        return ResponseEntity.noContent().build()
     }
 
 }
