@@ -10,5 +10,5 @@ data class TaskAttributeDefinitionEntity(
     val attributeName: String,
     @ManyToOne
     @JoinColumn(name = "task_definition_id")
-    val taskDefinitionEntity: TaskDefinitionEntity
+    val taskDefinition: TaskDefinitionEntity
 )
