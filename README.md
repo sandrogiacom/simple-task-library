@@ -1,6 +1,15 @@
 # Simple Task Library
 
 
+## Features
+
+- [x] CRUD task definition
+- [x] CRUD task step definition
+- [x] CRUD task attribute definition
+- [ ] Start task
+
+
+
 ## Swagger UI
 http://localhost:8080/swagger-ui.html
 

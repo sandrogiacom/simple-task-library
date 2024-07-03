@@ -1,13 +1,13 @@
 package com.giacom.simpletask.application.core.usecase
 
 import com.giacom.simpletask.application.core.domain.TaskDefinition
+import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import com.giacom.simpletask.application.ports.input.SaveTaskDefinitionInput
-import com.giacom.simpletask.application.ports.output.FindTaskDefinitionOutput
 import com.giacom.simpletask.application.ports.output.SaveTaskDefinitionOutput
 
 class SaveTaskDefinitionUseCase(
     private val saveTaskDefinitionOutput: SaveTaskDefinitionOutput,
-    private val findTaskDefinitionOutput: FindTaskDefinitionOutput
+    private val findTaskDefinitionInput: FindTaskDefinitionInput
 ) : SaveTaskDefinitionInput {
 
     override fun create(taskDefinition: TaskDefinition): TaskDefinition {
@@ -15,9 +15,7 @@ class SaveTaskDefinitionUseCase(
     }
 
     override fun update(id: Long, taskDefinition: TaskDefinition): TaskDefinition {
-        val existTask = findTaskDefinitionOutput.findById(id)
-            .orElseThrow { RuntimeException("Task definition not found") }
-
+        val existTask = findTaskDefinitionInput.findById(id)
         return saveTaskDefinitionOutput.save(
             taskDefinition.copy(id = existTask.id)
         )
