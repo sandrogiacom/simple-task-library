@@ -1,6 +1,6 @@
 package com.giacom.simpletask.application.core.usecase
 
-import com.giacom.simpletask.application.ports.output.FindTaskDefinitionOutput
+import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import com.giacom.simpletask.application.ports.output.SaveTaskDefinitionOutput
 import com.giacom.simpletask.builder.TaskDefinitionBuilder
 import com.giacom.simpletask.builder.TaskStepDefinitionBuilder
@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Test
 class SaveTaskDefinitionUseCaseTest {
 
     private val saveTaskDefinitionOutput = mockk<SaveTaskDefinitionOutput>()
-    private val findTaskDefinitionOutput = mockk<FindTaskDefinitionOutput>()
+    private val findTaskDefinitionInput = mockk<FindTaskDefinitionInput>()
     private val saveTaskDefinitionUseCase = SaveTaskDefinitionUseCase(
-        saveTaskDefinitionOutput, findTaskDefinitionOutput
+        saveTaskDefinitionOutput, findTaskDefinitionInput
     )
 
     @Test
