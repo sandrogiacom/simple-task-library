@@ -8,8 +8,20 @@ data class TaskInstance(
     val attributes: List<TaskAttributeInstance>? = emptyList(),
     val steps: List<TaskStepInstance>? = emptyList(),
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime? = null
+    val startedAt: LocalDateTime? = null
 ){
+    fun startTask(){
+        startedAt?.let {LocalDateTime.now()}
+    }
+
+    fun startStep(step: TaskStepInstance) {
+        steps?.find { it.id == step.id }?.start()
+    }
+
+    fun completeStep(step: TaskStepInstance){
+
+    }
+
     fun addAttribute(attribute: TaskAttributeInstance) {
         (attributes as MutableList).add(attribute)
     }

@@ -22,6 +22,10 @@ class CreateTaskInstanceUseCase(
             taskDefinition = taskDefinition
         )
 
+        if (taskDefinition.taskSteps?.isEmpty() == true) {
+            throw IllegalArgumentException("Task definition steps does not exist")
+        }
+
         val instance = createTaskInstanceOutput.create(taskInstance)
 
         taskDefinition.taskSteps?.forEach { taskStepDefinition ->

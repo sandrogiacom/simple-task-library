@@ -9,4 +9,9 @@ data class TaskStepInstance(
     val status: TaskStepStatus = TaskStepStatus.CREATED,
     val startedAt: LocalDateTime? = null,
     val endedAt: LocalDateTime? = null
-)
+) {
+    fun start() {
+        startedAt.let { LocalDateTime.now() }
+        status.let { TaskStepStatus.RUNNING }
+    }
+}

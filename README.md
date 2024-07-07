@@ -6,7 +6,11 @@
 - [x] CRUD task definition
 - [x] CRUD task step definition
 - [x] CRUD task attribute definition
-- [ ] Start task
+- [ ] Create task instance
+- [ ] Start task instance
+- [ ] Start task (step instance)
+- [ ] Complete task (step instance)
+- [ ] Complete task instance
 
 ```sql
 SELECT * FROM TASK_DEFINITION;
