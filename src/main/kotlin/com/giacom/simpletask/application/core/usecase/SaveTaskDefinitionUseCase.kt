@@ -11,6 +11,16 @@ class SaveTaskDefinitionUseCase(
 ) : SaveTaskDefinitionInput {
 
     override fun create(taskDefinition: TaskDefinition): TaskDefinition {
+        try {
+            val existTask = findTaskDefinitionInput.findByName(taskDefinition.taskName)
+            if (existTask != null) {
+                throw RuntimeException("Task definition already exists!")
+            }
+        }catch (ex: NoSuchElementException){
+            //nothing to do
+        } catch (ex: Exception) {
+            throw ex
+        }
         return saveTaskDefinitionOutput.save(taskDefinition)
     }
 
