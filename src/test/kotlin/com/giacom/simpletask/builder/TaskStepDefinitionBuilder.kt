@@ -7,6 +7,7 @@ data class TaskStepDefinitionBuilder(
     val id: Long = 0,
     val stepName: String = "",
     val stepDescription: String = "",
+    val orderNumber: Int = 0,
     val taskDefinition: TaskDefinition,
     val stepHandler: String? = ""
 ) {
@@ -15,6 +16,7 @@ data class TaskStepDefinitionBuilder(
             id = id,
             stepName = stepName,
             stepDescription = stepDescription,
+            orderNumber = orderNumber,
             taskDefinition = taskDefinition,
             stepHandler = stepHandler
         )

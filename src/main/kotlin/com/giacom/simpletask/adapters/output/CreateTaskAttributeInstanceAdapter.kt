@@ -13,7 +13,8 @@ class CreateTaskAttributeInstanceAdapter(
 ) : CreateTaskAttributeInstanceOutput {
 
     override fun create(taskAttributeInstance: TaskAttributeInstance): TaskAttributeInstance {
-        TODO("Not yet implemented")
+        val instanceEntity = repository.save(mapper.toEntity(taskAttributeInstance))
+        return mapper.toDomain(instanceEntity)
     }
 
 }

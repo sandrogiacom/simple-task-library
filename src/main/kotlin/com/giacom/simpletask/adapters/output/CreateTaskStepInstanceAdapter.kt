@@ -20,8 +20,8 @@ class CreateTaskStepInstanceAdapter(
 ) : CreateTaskStepInstanceOutput {
 
     override fun create(taskStepInstance: TaskStepInstance): TaskStepInstance {
-        TODO("Not yet implemented")
+        val instanceEntity = repository.save(mapper.toEntity(taskStepInstance))
+        return mapper.toDomain(instanceEntity)
     }
-
 
 }

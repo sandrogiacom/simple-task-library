@@ -8,5 +8,6 @@ data class TaskAttributeInstanceEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
     val attributeName: String,
-    val attributeValue: String? = null
+    val attributeValue: String? = null,
+    val taskInstanceId: Long
 )
