@@ -8,6 +8,6 @@ data class TaskStepDefinitionCreateRequest(
     @NotBlank
     val stepDescription: String,
     @NotBlank
-    val orderNumber: Int,
+    val stepNumber: Int,
     val stepHandler: String? = null
 )

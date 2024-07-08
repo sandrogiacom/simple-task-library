@@ -6,11 +6,13 @@
 - [x] CRUD task definition
 - [x] CRUD task step definition
 - [x] CRUD task attribute definition
+- [x] Add Swagger
 - [ ] Create task instance
 - [ ] Start task instance
 - [ ] Start task (step instance)
 - [ ] Complete task (step instance)
 - [ ] Complete task instance
+- [ ] Add Konsist
 
 ```sql
 SELECT * FROM TASK_DEFINITION;

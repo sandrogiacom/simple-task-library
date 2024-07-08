@@ -4,10 +4,12 @@ import com.giacom.simpletask.application.core.usecase.SaveTaskAttributeDefinitio
 import com.giacom.simpletask.application.ports.input.FindTaskAttributeDefinitionInput
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import com.giacom.simpletask.application.ports.output.SaveTaskAttributeDefinitionOutput
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
+@EnableAutoConfiguration
 class SaveTaskAttributeDefinitionConfig {
 
     @Bean

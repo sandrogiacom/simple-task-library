@@ -9,7 +9,7 @@ data class TaskStepDefinitionEntity(
     val id: Long = 0,
     val stepName: String,
     val stepDescription: String,
-    val orderNumber: Int,
+    val stepNumber: Int,
     @ManyToOne
     @JoinColumn(name = "task_definition_id")
     val taskDefinition: TaskDefinitionEntity,

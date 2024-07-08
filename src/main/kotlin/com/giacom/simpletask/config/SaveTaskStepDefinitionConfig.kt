@@ -4,10 +4,12 @@ import com.giacom.simpletask.application.core.usecase.SaveTaskStepDefinitionUseC
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import com.giacom.simpletask.application.ports.input.FindTaskStepDefinitionInput
 import com.giacom.simpletask.application.ports.output.SaveTaskStepDefinitionOutput
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
+@EnableAutoConfiguration
 class SaveTaskStepDefinitionConfig {
 
     @Bean
