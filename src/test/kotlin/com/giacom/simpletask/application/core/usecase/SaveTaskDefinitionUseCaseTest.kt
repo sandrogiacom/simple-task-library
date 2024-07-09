@@ -28,6 +28,7 @@ class SaveTaskDefinitionUseCaseTest {
         ).build()
 
         every { saveTaskDefinitionOutput.save(any()) } returns taskDefinition
+        every { findTaskDefinitionInput.findByName(any()) } throws NoSuchElementException()
 
         taskDefinition.addTaskStep(
             TaskStepDefinitionBuilder(
