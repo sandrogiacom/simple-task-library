@@ -1,7 +1,7 @@
 package com.giacom.simpletask.builder
 
-import com.giacom.simpletask.application.core.domain.TaskDefinition
-import com.giacom.simpletask.application.core.domain.TaskStepDefinition
+import com.giacom.simpletask.domain.TaskDefinition
+import com.giacom.simpletask.domain.TaskStepDefinition
 
 data class TaskStepDefinitionBuilder(
     val id: Long = 0,

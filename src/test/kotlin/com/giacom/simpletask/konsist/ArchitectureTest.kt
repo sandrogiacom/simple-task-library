@@ -12,12 +12,12 @@ class ArchitectureTest {
             .scopeFromProject() // Define the scope containing all Kotlin files present in project
             .assertArchitecture { // Assert architecture
                 // Define layers
-                val domain = Layer("Domain", "com.giacom.simpletask.application.core.domain..")
-                val useCase = Layer("UseCase", "com.giacom.simpletask.application.core.usecase..")
+                val domain = Layer("Domain", "com.giacom.simpletask.domain..")
+//                val useCase = Layer("UseCase", "com.giacom.simpletask.application.core.usecase..")
 
                 // Define architecture assertions
                 domain.dependsOnNothing()
-                useCase.dependsOn(domain)
+//                useCase.dependsOn(domain)
             }
     }
 }

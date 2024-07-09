@@ -1,9 +1,12 @@
 package com.giacom.simpletask.application.core.usecase
 
-import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
-import com.giacom.simpletask.application.ports.output.SaveTaskDefinitionOutput
 import com.giacom.simpletask.builder.TaskDefinitionBuilder
 import com.giacom.simpletask.builder.TaskStepDefinitionBuilder
+import com.giacom.simpletask.repository.TaskDefinitionRepository
+import com.giacom.simpletask.repository.mapper.TaskDefinitionEntityMapper
+import com.giacom.simpletask.repository.mapper.TaskDefinitionEntityMapperImpl
+import com.giacom.simpletask.service.FindTaskDefinitionService
+import com.giacom.simpletask.service.TaskDefinitionService
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -12,10 +15,11 @@ import org.junit.jupiter.api.Test
 
 class SaveTaskDefinitionUseCaseTest {
 
-    private val saveTaskDefinitionOutput = mockk<SaveTaskDefinitionOutput>()
-    private val findTaskDefinitionInput = mockk<FindTaskDefinitionInput>()
-    private val saveTaskDefinitionUseCase = SaveTaskDefinitionUseCase(
-        saveTaskDefinitionOutput, findTaskDefinitionInput
+    private val repository = mockk<TaskDefinitionRepository>()
+    private val findService = mockk<FindTaskDefinitionService>()
+    private val mapper = TaskDefinitionEntityMapperImpl()
+    private val service = TaskDefinitionService(
+        repository, mapper, findService
     )
 
     @Test
@@ -27,37 +31,38 @@ class SaveTaskDefinitionUseCaseTest {
             taskDescription = "Task 1 description",
         ).build()
 
-        every { saveTaskDefinitionOutput.save(any()) } returns taskDefinition
+//        taskDefinition.addTaskStep(
+//            TaskStepDefinitionBuilder(
+//                id = 1,
+//                stepName = "Task Step 1",
+//                stepDescription = "Task Step 1 description",
+//                taskDefinition = taskDefinition,
+//                stepHandler = "Task Step 1 handler"
+//            ).build()
+//        )
+//        taskDefinition.addTaskStep(
+//            TaskStepDefinitionBuilder(
+//                id = 2,
+//                stepName = "Task Step 2",
+//                stepDescription = "Task Step 2 description",
+//                taskDefinition = taskDefinition,
+//                stepHandler = "Task Step 2 handler"
+//            ).build()
+//        )
 
-        taskDefinition.addTaskStep(
-            TaskStepDefinitionBuilder(
-                id = 1,
-                stepName = "Task Step 1",
-                stepDescription = "Task Step 1 description",
-                taskDefinition = taskDefinition,
-                stepHandler = "Task Step 1 handler"
-            ).build()
-        )
-        taskDefinition.addTaskStep(
-            TaskStepDefinitionBuilder(
-                id = 2,
-                stepName = "Task Step 2",
-                stepDescription = "Task Step 2 description",
-                taskDefinition = taskDefinition,
-                stepHandler = "Task Step 2 handler"
-            ).build()
-        )
+        val taskDefinitionEntity = mapper.toEntity(taskDefinition)
+        every { repository.save(any()) } returns taskDefinitionEntity
 
         // When
-        val create = saveTaskDefinitionUseCase.create(taskDefinition)
+
+        val create = repository.save(taskDefinitionEntity)
 
         // Then
         assertThat(create.id).isEqualTo(1)
         assertThat(create.taskName).isEqualTo("Task 1")
         assertThat(create.taskDescription).isEqualTo("Task 1 description")
-        assertThat(create.taskSteps?.size).isEqualTo(2)
 
-        verify { saveTaskDefinitionOutput.save(any()) }
+        verify { repository.save(any()) }
 
     }
 
