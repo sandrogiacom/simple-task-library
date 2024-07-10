@@ -8,17 +8,22 @@ data class TaskInstance(
     val attributes: List<TaskAttributeInstance>? = emptyList(),
     val steps: List<TaskStepInstance>? = emptyList(),
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val startedAt: LocalDateTime? = null
-){
-    fun startTask(){
-        startedAt?.let {LocalDateTime.now()}
+    val status: TaskStatus = TaskStatus.CREATED,
+    val startedAt: LocalDateTime? = null,
+    val completedAt: LocalDateTime? = null
+) {
+    fun startTask(): TaskInstance {
+        return this.copy(
+            status = TaskStatus.RUNNING,
+            startedAt = LocalDateTime.now()
+        )
     }
 
     fun startStep(step: TaskStepInstance) {
         steps?.find { it.id == step.id }?.start()
     }
 
-    fun completeStep(step: TaskStepInstance){
+    fun completeStep(step: TaskStepInstance) {
 
     }
 

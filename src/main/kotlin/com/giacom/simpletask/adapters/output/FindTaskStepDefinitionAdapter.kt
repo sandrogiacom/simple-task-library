@@ -23,4 +23,11 @@ class FindTaskStepDefinitionAdapter(
         return taskStepDefinitionEntities.map { mapper.toDomain(it) }
     }
 
+    override fun findByStepName(stepName: String): TaskStepDefinition {
+        val taskStepDefinitionEntity = repository.findByStepName(stepName).orElseThrow {
+            NoSuchElementException()
+        }
+        return mapper.toDomain(taskStepDefinitionEntity)
+    }
+
 }

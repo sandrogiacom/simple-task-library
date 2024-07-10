@@ -1,6 +1,6 @@
 package com.giacom.simpletask.adapters.output.repository.entity
 
-import com.giacom.simpletask.application.core.domain.TaskStepStatus
+import com.giacom.simpletask.application.core.domain.TaskStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -12,7 +12,7 @@ data class TaskStepInstanceEntity(
     val taskInstanceId: Long,
     val taskStepDefinitionId: Long,
     @Enumerated(EnumType.STRING)
-    val status: TaskStepStatus,
+    val status: TaskStatus,
     val startedAt: LocalDateTime? = null,
     val endedAt: LocalDateTime? = null
 )

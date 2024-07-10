@@ -6,17 +6,17 @@ import com.giacom.simpletask.application.core.domain.TaskStepInstance
 import com.giacom.simpletask.application.ports.input.CreateTaskInstanceInput
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import com.giacom.simpletask.application.ports.output.CreateTaskAttributeInstanceOutput
-import com.giacom.simpletask.application.ports.output.CreateTaskInstanceOutput
+import com.giacom.simpletask.application.ports.output.SaveTaskInstanceOutput
 import com.giacom.simpletask.application.ports.output.CreateTaskStepInstanceOutput
 
 class CreateTaskInstanceUseCase(
     private val findTaskDefinitionInput: FindTaskDefinitionInput,
-    private val createTaskInstanceOutput: CreateTaskInstanceOutput,
+    private val createTaskInstanceOutput: SaveTaskInstanceOutput,
     private val createTaskStepInstanceOutput: CreateTaskStepInstanceOutput,
     private val createTaskAttributeInstanceOutput: CreateTaskAttributeInstanceOutput
 ) : CreateTaskInstanceInput {
 
-    override fun create(taskName: String): Long {
+    override fun create(taskName: String): TaskInstance {
         val taskDefinition = findTaskDefinitionInput.findByName(taskName)
         val taskInstance = TaskInstance(
             taskDefinition = taskDefinition
@@ -26,7 +26,7 @@ class CreateTaskInstanceUseCase(
             throw IllegalArgumentException("Task definition steps does not exist")
         }
 
-        val instance = createTaskInstanceOutput.create(taskInstance)
+        val instance = createTaskInstanceOutput.save(taskInstance)
 
         taskDefinition.taskSteps?.forEach { taskStepDefinition ->
             createTaskStepInstanceOutput.create(
@@ -45,7 +45,7 @@ class CreateTaskInstanceUseCase(
             )
         }
 
-        return instance.id
+        return instance
     }
 
 }

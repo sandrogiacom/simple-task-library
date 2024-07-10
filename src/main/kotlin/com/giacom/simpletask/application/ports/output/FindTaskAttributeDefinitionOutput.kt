@@ -6,4 +6,5 @@ import java.util.*
 interface FindTaskAttributeDefinitionOutput {
     fun findById(id: Long): Optional<TaskAttributeDefinition>
     fun findAllByTaskDefinitionId(taskDefinitionId: Long): List<TaskAttributeDefinition>
+    fun findByAttributeName(attributeName: String): TaskAttributeDefinition
 }

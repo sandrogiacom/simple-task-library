@@ -14,10 +14,19 @@ class SaveTaskAttributeDefinitionUseCase(
 
     override fun create(taskDefinitionId: Long, taskAttributeDefinition: TaskAttributeDefinition): TaskAttributeDefinition {
         val taskDefinition = findTaskDefinitionInput.findById(taskDefinitionId)
+        try {
+            val existTaskAttribute = findTaskAttributeDefinitionInput.findByAttributeName(taskAttributeDefinition.attributeName)
+            if (existTaskAttribute != null) {
+                throw RuntimeException("Task definition Attribute already exists!")
+            }
+        } catch (ex: NoSuchElementException) {
+            //nothing to do
+        } catch (ex: Exception) {
+            throw ex
+        }
         return saveTaskAttributeDefinitionOutput.save(
             taskAttributeDefinition.copy(taskDefinition = taskDefinition)
         )
-
     }
 
     override fun update(id: Long, taskAttributeDefinition: TaskAttributeDefinition): TaskAttributeDefinition {

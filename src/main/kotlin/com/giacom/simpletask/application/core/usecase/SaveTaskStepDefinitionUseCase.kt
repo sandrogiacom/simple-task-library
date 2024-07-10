@@ -14,6 +14,21 @@ class SaveTaskStepDefinitionUseCase(
 
     override fun create(taskDefinitionId: Long, taskStepDefinition: TaskStepDefinition): TaskStepDefinition {
         val taskDefinition = findTaskDefinitionInput.findById(taskDefinitionId)
+        //TODO: poderia ter um indice unico no banco para evitar a exceção. stepName + taskDefinitionId
+        //TODO: verificar se a ordem ja existe para a taskDefinitionId
+        try {
+            val existTaskStep = findTaskStepDefinitionInput.findByStepName(taskStepDefinition.stepName)
+            if (existTaskStep != null) {
+                throw RuntimeException("Task definition Step already exists!")
+            }
+        } catch (ex: NoSuchElementException) {
+            //nothing to do
+        } catch (ex: Exception) {
+            throw ex
+        }
+
+        //TODO: validate attributes
+
         return saveTaskStepDefinitionOutput.save(
             taskStepDefinition.copy(taskDefinition = taskDefinition)
         )

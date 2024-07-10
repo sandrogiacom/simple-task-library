@@ -1,5 +1,6 @@
 package com.giacom.simpletask.adapters.output.repository.entity
 
+import com.giacom.simpletask.application.core.domain.TaskStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -12,5 +13,8 @@ data class TaskInstanceEntity(
     @JoinColumn(name = "task_definition_id")
     val taskDefinition: TaskDefinitionEntity,
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime? = null
+    @Enumerated(EnumType.STRING)
+    val status: TaskStatus,
+    val startedAt: LocalDateTime? = null,
+    val completedAt: LocalDateTime? = null,
 )

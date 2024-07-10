@@ -1,6 +1,6 @@
 package com.giacom.simpletask.application.core.domain
 
-enum class TaskStepStatus {
+enum class TaskStatus {
     CREATED,
     RUNNING,
     COMPLETED,

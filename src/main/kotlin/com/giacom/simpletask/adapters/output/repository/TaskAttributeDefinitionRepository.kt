@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface TaskAttributeDefinitionRepository : CrudRepository<TaskAttributeDefinitionEntity, Long>{
     fun findAllByTaskDefinitionId(taskDefinitionId: Long): List<TaskAttributeDefinitionEntity>
+    fun findByAttributeName(attributeName: String): TaskAttributeDefinitionEntity
 }

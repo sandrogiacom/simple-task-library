@@ -6,4 +6,5 @@ import java.util.*
 interface FindTaskStepDefinitionOutput {
     fun findById(id: Long): Optional<TaskStepDefinition>
     fun findAllByTaskDefinitionId(taskDefinitionId: Long): List<TaskStepDefinition>
+    fun findByStepName(stepName: String): TaskStepDefinition
 }

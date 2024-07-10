@@ -6,5 +6,7 @@ data class TaskStepDefinition(
     val stepDescription: String,
     val stepNumber: Int,
     val taskDefinition: TaskDefinition? = null,
+    val requiredStartAttributes: String? = null,
+    val requiredCompleteAttributes: String? = null,
     val stepHandler: String? = null
 )

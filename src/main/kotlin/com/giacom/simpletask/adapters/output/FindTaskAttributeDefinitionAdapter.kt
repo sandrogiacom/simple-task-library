@@ -23,4 +23,9 @@ class FindTaskAttributeDefinitionAdapter(
         return taskAttributeDefinitionEntities.map { mapper.toDomain(it) }
     }
 
+    override fun findByAttributeName(attributeName: String): TaskAttributeDefinition {
+        val taskAttributeDefinitionEntity = repository.findByAttributeName(attributeName)
+        return mapper.toDomain(taskAttributeDefinitionEntity)
+    }
+
 }

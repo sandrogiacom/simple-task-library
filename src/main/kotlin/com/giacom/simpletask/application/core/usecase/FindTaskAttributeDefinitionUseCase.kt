@@ -16,5 +16,9 @@ class FindTaskAttributeDefinitionUseCase(
         return findTaskAttributeDefinitionOutput.findById(id).orElseThrow { RuntimeException("Task definition Attribute not found") }
     }
 
+    override fun findByAttributeName(attributeName: String): TaskAttributeDefinition {
+        return findTaskAttributeDefinitionOutput.findByAttributeName(attributeName)
+    }
+
 
 }

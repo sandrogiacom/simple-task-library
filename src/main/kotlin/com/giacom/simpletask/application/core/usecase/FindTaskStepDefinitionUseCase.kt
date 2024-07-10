@@ -16,5 +16,9 @@ class FindTaskStepDefinitionUseCase(
         return findTaskStepDefinitionOutput.findById(id).orElseThrow { RuntimeException("Task definition step not found") }
     }
 
+    override fun findByStepName(stepName: String): TaskStepDefinition {
+        return findTaskStepDefinitionOutput.findByStepName(stepName)
+    }
+
 
 }
