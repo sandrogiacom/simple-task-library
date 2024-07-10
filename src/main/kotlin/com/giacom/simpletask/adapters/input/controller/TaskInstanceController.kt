@@ -26,8 +26,8 @@ class TaskInstanceController(
     }
 
     @PostMapping("/{id}/start/")
-    fun start(@PathVariable id: Long): ResponseEntity<TaskInstanceResponse> {
-        val response = startTaskInstanceInput.startTask(id)
+    fun start(@PathVariable id: Long, @RequestBody attributes: Map<String, String>? = emptyMap()): ResponseEntity<TaskInstanceResponse> {
+        val response = startTaskInstanceInput.startTask(id, attributes)
         return ResponseEntity.ok(mapper.toTaskInstanceResponse(response))
     }
 
