@@ -1,7 +1,7 @@
 package com.giacom.simpletask.builder
 
 import com.giacom.simpletask.application.core.domain.TaskDefinition
-import com.giacom.simpletask.application.core.domain.TaskStepDefinition
+import com.giacom.simpletask.application.core.domain.TaskDefinitionStep
 
 data class TaskStepDefinitionBuilder(
     val id: Long = 0,
@@ -11,8 +11,8 @@ data class TaskStepDefinitionBuilder(
     val taskDefinition: TaskDefinition,
     val stepHandler: String? = ""
 ) {
-    fun build(): TaskStepDefinition {
-        return TaskStepDefinition(
+    fun build(): TaskDefinitionStep {
+        return TaskDefinitionStep(
             id = id,
             stepName = stepName,
             stepDescription = stepDescription,

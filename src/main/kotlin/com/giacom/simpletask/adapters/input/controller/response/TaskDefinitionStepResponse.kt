@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonInclude
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-data class TaskDefinitionResponse(
+data class TaskDefinitionStepResponse(
     val id: Long,
-    val taskName: String,
-    val taskDescription: String,
-    val taskSteps: List<TaskDefinitionStepResponse>?,
-    val attributes: List<TaskDefinitionAttributeResponse>?
+    val stepName: String,
+    val stepDescription: String,
+    val stepHandler: String? = null,
+    val taskDefinitionId: Long? = null
 )

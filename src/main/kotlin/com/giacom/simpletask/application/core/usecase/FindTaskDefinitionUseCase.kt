@@ -1,15 +1,15 @@
 package com.giacom.simpletask.application.core.usecase
 
 import com.giacom.simpletask.application.core.domain.TaskDefinition
-import com.giacom.simpletask.application.ports.input.FindTaskAttributeDefinitionInput
+import com.giacom.simpletask.application.ports.input.FindTaskDefinitionAttributeInput
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
-import com.giacom.simpletask.application.ports.input.FindTaskStepDefinitionInput
+import com.giacom.simpletask.application.ports.input.FindTaskDefinitionStepInput
 import com.giacom.simpletask.application.ports.output.FindTaskDefinitionOutput
 
 class FindTaskDefinitionUseCase(
     private val findTaskDefinitionOutput: FindTaskDefinitionOutput,
-    private val findTaskStepDefinitionInput: FindTaskStepDefinitionInput,
-    private val findTaskAttributeDefinitionInput: FindTaskAttributeDefinitionInput
+    private val findTaskStepDefinitionInput: FindTaskDefinitionStepInput,
+    private val findTaskAttributeDefinitionInput: FindTaskDefinitionAttributeInput
 ) : FindTaskDefinitionInput {
 
     override fun findById(id: Long): TaskDefinition {

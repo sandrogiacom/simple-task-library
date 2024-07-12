@@ -1,19 +1,19 @@
 package com.giacom.simpletask.application.core.usecase
 
-import com.giacom.simpletask.application.core.domain.TaskAttributeInstance
+import com.giacom.simpletask.application.core.domain.TaskInstanceAttribute
 import com.giacom.simpletask.application.core.domain.TaskInstance
-import com.giacom.simpletask.application.core.domain.TaskStepInstance
+import com.giacom.simpletask.application.core.domain.TaskInstanceStep
 import com.giacom.simpletask.application.ports.input.CreateTaskInstanceInput
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
-import com.giacom.simpletask.application.ports.output.SaveTaskAttributeInstanceOutput
+import com.giacom.simpletask.application.ports.output.SaveTaskInstanceAttributeOutput
 import com.giacom.simpletask.application.ports.output.SaveTaskInstanceOutput
-import com.giacom.simpletask.application.ports.output.SaveTaskStepInstanceOutput
+import com.giacom.simpletask.application.ports.output.SaveTaskInstanceStepOutput
 
 class CreateTaskInstanceUseCase(
     private val findTaskDefinitionInput: FindTaskDefinitionInput,
     private val createTaskInstanceOutput: SaveTaskInstanceOutput,
-    private val createTaskStepInstanceOutput: SaveTaskStepInstanceOutput,
-    private val createTaskAttributeInstanceOutput: SaveTaskAttributeInstanceOutput
+    private val createTaskStepInstanceOutput: SaveTaskInstanceStepOutput,
+    private val createTaskAttributeInstanceOutput: SaveTaskInstanceAttributeOutput
 ) : CreateTaskInstanceInput {
 
     override fun create(taskName: String): TaskInstance {
@@ -30,7 +30,7 @@ class CreateTaskInstanceUseCase(
 
         taskDefinition.taskSteps?.forEach { taskStepDefinition ->
             createTaskStepInstanceOutput.save(
-                TaskStepInstance(
+                TaskInstanceStep(
                     taskInstanceId = instance.id,
                     taskStepDefinitionId = taskStepDefinition.id!!
                 )
@@ -38,7 +38,7 @@ class CreateTaskInstanceUseCase(
         }
         taskDefinition.attributes?.forEach { taskAttributeDefinition ->
             createTaskAttributeInstanceOutput.save(
-                TaskAttributeInstance(
+                TaskInstanceAttribute(
                     taskInstanceId = instance.id,
                     attributeName = taskAttributeDefinition.attributeName
                 )

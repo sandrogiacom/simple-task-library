@@ -4,14 +4,14 @@ data class TaskDefinition(
     val id: Long? = 0,
     val taskName: String,
     val taskDescription: String,
-    var taskSteps: List<TaskStepDefinition>? = mutableListOf(),
-    var attributes: List<TaskAttributeDefinition>? = mutableListOf()
+    var taskSteps: List<TaskDefinitionStep>? = mutableListOf(),
+    var attributes: List<TaskDefinitionAttribute>? = mutableListOf()
 ){
-    fun addTaskStep(taskStep: TaskStepDefinition) {
+    fun addTaskStep(taskStep: TaskDefinitionStep) {
         (taskSteps as MutableList).add(taskStep)
     }
 
-    fun addAttribute(attribute: TaskAttributeDefinition) {
+    fun addAttribute(attribute: TaskDefinitionAttribute) {
         (attributes as MutableList).add(attribute)
     }
 
