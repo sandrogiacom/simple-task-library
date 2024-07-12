@@ -12,8 +12,8 @@ class TaskInstanceStepAdapter(
     private val mapper: TaskInstanceStepEntityMapper
 ) : SaveTaskInstanceStepOutput {
 
-    override fun save(taskStepInstance: TaskInstanceStep): TaskInstanceStep {
-        val instanceEntity = repository.save(mapper.toEntity(taskStepInstance))
+    override fun save(taskInstanceStep: TaskInstanceStep): TaskInstanceStep {
+        val instanceEntity = repository.save(mapper.toEntity(taskInstanceStep))
         return mapper.toDomain(instanceEntity)
     }
 

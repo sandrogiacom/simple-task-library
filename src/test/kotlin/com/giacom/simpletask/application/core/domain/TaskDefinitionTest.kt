@@ -1,7 +1,7 @@
 package com.giacom.simpletask.application.core.domain
 
 import com.giacom.simpletask.builder.TaskDefinitionBuilder
-import com.giacom.simpletask.builder.TaskStepDefinitionBuilder
+import com.giacom.simpletask.builder.TaskDefinitionStepBuilder
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -17,7 +17,7 @@ class TaskDefinitionTest {
         ).build()
 
         taskDefinition.addTaskStep(
-            TaskStepDefinitionBuilder(
+            TaskDefinitionStepBuilder(
                 id = 1,
                 stepName = "Task Step 1",
                 stepDescription = "Task Step 1 description",
@@ -26,7 +26,7 @@ class TaskDefinitionTest {
             ).build()
         )
         taskDefinition.addTaskStep(
-            TaskStepDefinitionBuilder(
+            TaskDefinitionStepBuilder(
                 id = 2,
                 stepName = "Task Step 2",
                 stepDescription = "Task Step 2 description",

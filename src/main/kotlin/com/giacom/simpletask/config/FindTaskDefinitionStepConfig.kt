@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration
 class FindTaskDefinitionStepConfig {
 
     @Bean
-    fun findTaskStepDefinitionInput(findTaskStepDefinitionOutput: FindTaskDefinitionStepOutput): FindTaskDefinitionStepUseCase {
-        return FindTaskDefinitionStepUseCase(findTaskStepDefinitionOutput)
+    fun findTaskDefinitionStepInput(findTaskDefinitionStepOutput: FindTaskDefinitionStepOutput): FindTaskDefinitionStepUseCase {
+        return FindTaskDefinitionStepUseCase(findTaskDefinitionStepOutput)
     }
 
 }

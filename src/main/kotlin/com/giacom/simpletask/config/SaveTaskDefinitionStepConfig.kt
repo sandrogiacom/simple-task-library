@@ -13,12 +13,12 @@ import org.springframework.context.annotation.Configuration
 class SaveTaskDefinitionStepConfig {
 
     @Bean
-    fun saveTaskStepDefinitionInput(
-        saveTaskStepDefinitionOutput: SaveTaskDefinitionStepOutput,
-        findTaskStepDefinitionInput: FindTaskDefinitionStepInput,
+    fun saveTaskDefinitionStepInput(
+        saveTaskDefinitionStepOutput: SaveTaskDefinitionStepOutput,
+        findTaskDefinitionStepInput: FindTaskDefinitionStepInput,
         findTaskDefinitionInput: FindTaskDefinitionInput
     ): SaveTaskDefinitionStepUseCase {
-        return SaveTaskDefinitionStepUseCase(saveTaskStepDefinitionOutput, findTaskStepDefinitionInput, findTaskDefinitionInput)
+        return SaveTaskDefinitionStepUseCase(saveTaskDefinitionStepOutput, findTaskDefinitionStepInput, findTaskDefinitionInput)
     }
 
 }

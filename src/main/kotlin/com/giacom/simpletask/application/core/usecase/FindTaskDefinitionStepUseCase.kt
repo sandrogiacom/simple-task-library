@@ -5,19 +5,19 @@ import com.giacom.simpletask.application.ports.input.FindTaskDefinitionStepInput
 import com.giacom.simpletask.application.ports.output.FindTaskDefinitionStepOutput
 
 class FindTaskDefinitionStepUseCase(
-    private val findTaskStepDefinitionOutput: FindTaskDefinitionStepOutput
+    private val findTaskDefinitionStepOutput: FindTaskDefinitionStepOutput
 ) : FindTaskDefinitionStepInput {
 
     override fun findAllByTaskDefinitionId(taskDefinitionId: Long): List<TaskDefinitionStep> {
-        return findTaskStepDefinitionOutput.findAllByTaskDefinitionId(taskDefinitionId)
+        return findTaskDefinitionStepOutput.findAllByTaskDefinitionId(taskDefinitionId)
     }
 
     override fun findById(id: Long): TaskDefinitionStep {
-        return findTaskStepDefinitionOutput.findById(id).orElseThrow { RuntimeException("Task definition step not found") }
+        return findTaskDefinitionStepOutput.findById(id).orElseThrow { RuntimeException("Task definition step not found") }
     }
 
     override fun findByStepName(stepName: String): TaskDefinitionStep {
-        return findTaskStepDefinitionOutput.findByStepName(stepName)
+        return findTaskDefinitionStepOutput.findByStepName(stepName)
     }
 
 

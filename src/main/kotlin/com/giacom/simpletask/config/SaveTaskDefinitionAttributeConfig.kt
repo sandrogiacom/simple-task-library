@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration
 class SaveTaskDefinitionAttributeConfig {
 
     @Bean
-    fun saveTaskAttributeDefinitionInput(
+    fun saveTaskDefinitionAttributeInput(
         saveTaskDefinitionAttributeOutput: SaveTaskDefinitionAttributeOutput,
         findTaskDefinitionAttributeInput: FindTaskDefinitionAttributeInput,
         findTaskDefinitionInput: FindTaskDefinitionInput

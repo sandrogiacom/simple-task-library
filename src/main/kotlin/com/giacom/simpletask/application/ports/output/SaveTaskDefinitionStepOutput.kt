@@ -4,6 +4,6 @@ import com.giacom.simpletask.application.core.domain.TaskDefinitionStep
 
 interface SaveTaskDefinitionStepOutput {
 
-    fun save(taskStepDefinition: TaskDefinitionStep): TaskDefinitionStep
+    fun save(taskDefinitionStep: TaskDefinitionStep): TaskDefinitionStep
 
 }

@@ -22,27 +22,27 @@ class TaskDefinitionStepController(
     @PostMapping("/{taskDefinitionId}/steps")
     fun create(@Valid @RequestBody request: TaskDefinitionStepCreateRequest, @PathVariable taskDefinitionId: Long):
             ResponseEntity<TaskDefinitionStepResponse> {
-        val taskStepDefinition = saveStepInput.create(taskDefinitionId, mapper.toDomain(request))
-        return ResponseEntity.ok(mapper.toResponse(taskStepDefinition))
+        val taskDefinitionStep = saveStepInput.create(taskDefinitionId, mapper.toDomain(request))
+        return ResponseEntity.ok(mapper.toResponse(taskDefinitionStep))
     }
 
     @GetMapping("/{taskDefinitionId}/steps")
     fun findAllSteps(@PathVariable taskDefinitionId: Long): ResponseEntity<List<TaskDefinitionStepResponse>> {
-        val taskStepDefinitions = findStepInput.findAllByTaskDefinitionId(taskDefinitionId)
-        return ResponseEntity.ok(mapper.toResponseList(taskStepDefinitions))
+        val definitionStepList = findStepInput.findAllByTaskDefinitionId(taskDefinitionId)
+        return ResponseEntity.ok(mapper.toResponseList(definitionStepList))
     }
 
     @GetMapping("/steps/{id}")
     fun findById(@PathVariable id: Long): ResponseEntity<TaskDefinitionStepResponse> {
-        val taskStepDefinition = findStepInput.findById(id)
-        return ResponseEntity.ok(mapper.toResponse(taskStepDefinition))
+        val taskDefinitionStep = findStepInput.findById(id)
+        return ResponseEntity.ok(mapper.toResponse(taskDefinitionStep))
     }
 
     @PutMapping("/steps/{id}")
     fun updateStep(@PathVariable id: Long, @Valid @RequestBody request: TaskDefinitionStepCreateRequest):
             ResponseEntity<TaskDefinitionStepResponse> {
-        val taskStepDefinition = saveStepInput.update(id, mapper.toDomain(request))
-        return ResponseEntity.ok(mapper.toResponse(taskStepDefinition))
+        val taskDefinitionStep = saveStepInput.update(id, mapper.toDomain(request))
+        return ResponseEntity.ok(mapper.toResponse(taskDefinitionStep))
     }
 
     @DeleteMapping("/steps/{id}")

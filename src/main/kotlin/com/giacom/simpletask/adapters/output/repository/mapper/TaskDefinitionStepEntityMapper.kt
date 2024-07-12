@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component
 @Component
 interface TaskDefinitionStepEntityMapper {
 
-    fun toEntity(taskStepDefinition: TaskDefinitionStep): TaskDefinitionStepEntity
-    fun toDomain(taskStepDefinitionEntity: TaskDefinitionStepEntity): TaskDefinitionStep
+    fun toEntity(taskDefinitionStep: TaskDefinitionStep): TaskDefinitionStepEntity
+    fun toDomain(taskDefinitionStepEntity: TaskDefinitionStepEntity): TaskDefinitionStep
 }

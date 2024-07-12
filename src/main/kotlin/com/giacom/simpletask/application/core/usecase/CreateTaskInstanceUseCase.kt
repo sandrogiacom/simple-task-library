@@ -12,7 +12,7 @@ import com.giacom.simpletask.application.ports.output.SaveTaskInstanceStepOutput
 class CreateTaskInstanceUseCase(
     private val findTaskDefinitionInput: FindTaskDefinitionInput,
     private val createTaskInstanceOutput: SaveTaskInstanceOutput,
-    private val createTaskStepInstanceOutput: SaveTaskInstanceStepOutput,
+    private val saveTaskInstanceStepOutput: SaveTaskInstanceStepOutput,
     private val saveTaskInstanceAttributeOutput: SaveTaskInstanceAttributeOutput
 ) : CreateTaskInstanceInput {
 
@@ -28,11 +28,11 @@ class CreateTaskInstanceUseCase(
 
         val instance = createTaskInstanceOutput.save(taskInstance)
 
-        taskDefinition.taskSteps?.forEach { taskStepDefinition ->
-            createTaskStepInstanceOutput.save(
+        taskDefinition.taskSteps?.forEach { taskDefinitionStep ->
+            saveTaskInstanceStepOutput.save(
                 TaskInstanceStep(
                     taskInstanceId = instance.id,
-                    taskStepDefinitionId = taskStepDefinition.id!!
+                    taskDefinitionStepId = taskDefinitionStep.id!!
                 )
             )
         }

@@ -3,7 +3,7 @@ package com.giacom.simpletask.application.core.usecase
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import com.giacom.simpletask.application.ports.output.SaveTaskDefinitionOutput
 import com.giacom.simpletask.builder.TaskDefinitionBuilder
-import com.giacom.simpletask.builder.TaskStepDefinitionBuilder
+import com.giacom.simpletask.builder.TaskDefinitionStepBuilder
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -31,7 +31,7 @@ class SaveTaskDefinitionUseCaseTest {
         every { findTaskDefinitionInput.findByName(any()) } throws NoSuchElementException()
 
         taskDefinition.addTaskStep(
-            TaskStepDefinitionBuilder(
+            TaskDefinitionStepBuilder(
                 id = 1,
                 stepName = "Task Step 1",
                 stepDescription = "Task Step 1 description",
@@ -40,7 +40,7 @@ class SaveTaskDefinitionUseCaseTest {
             ).build()
         )
         taskDefinition.addTaskStep(
-            TaskStepDefinitionBuilder(
+            TaskDefinitionStepBuilder(
                 id = 2,
                 stepName = "Task Step 2",
                 stepDescription = "Task Step 2 description",

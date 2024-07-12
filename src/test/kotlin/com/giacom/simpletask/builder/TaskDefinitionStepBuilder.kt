@@ -3,7 +3,7 @@ package com.giacom.simpletask.builder
 import com.giacom.simpletask.application.core.domain.TaskDefinition
 import com.giacom.simpletask.application.core.domain.TaskDefinitionStep
 
-data class TaskStepDefinitionBuilder(
+data class TaskDefinitionStepBuilder(
     val id: Long = 0,
     val stepName: String = "",
     val stepDescription: String = "",

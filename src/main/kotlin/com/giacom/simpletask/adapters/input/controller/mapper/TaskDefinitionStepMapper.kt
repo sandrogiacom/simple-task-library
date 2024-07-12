@@ -11,11 +11,11 @@ interface TaskDefinitionStepMapper {
 
     @Mapping(target = "taskDefinition", ignore = true)
     @Mapping(target = "id", ignore = true)
-    fun toDomain(taskStepDefinitionCreateRequest: TaskDefinitionStepCreateRequest): TaskDefinitionStep
+    fun toDomain(taskDefinitionStepCreateRequest: TaskDefinitionStepCreateRequest): TaskDefinitionStep
 
     @Mapping(target = "taskDefinitionId", source = "taskDefinition.id")
-    fun toResponse(taskStepDefinition: TaskDefinitionStep): TaskDefinitionStepResponse
+    fun toResponse(taskDefinitionStep: TaskDefinitionStep): TaskDefinitionStepResponse
 
     @Mapping(target = "taskDefinitionId", source = "taskDefinition.id")
-    fun toResponseList(taskStepDefinitions: List<TaskDefinitionStep>): List<TaskDefinitionStepResponse>
+    fun toResponseList(taskDefinitionStepList: List<TaskDefinitionStep>): List<TaskDefinitionStepResponse>
 }

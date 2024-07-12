@@ -17,26 +17,26 @@ class TaskDefinitionStepAdapter(
 ) : SaveTaskDefinitionStepOutput, FindTaskDefinitionStepOutput, DeleteTaskDefinitionStepOutput {
 
     @Transactional
-    override fun save(taskStepDefinition: TaskDefinitionStep): TaskDefinitionStep {
-        val taskStepDefinitionEntity = repository.save(mapper.toEntity(taskStepDefinition))
-        return mapper.toDomain(taskStepDefinitionEntity)
+    override fun save(taskDefinitionStep: TaskDefinitionStep): TaskDefinitionStep {
+        val taskDefinitionStepEntity = repository.save(mapper.toEntity(taskDefinitionStep))
+        return mapper.toDomain(taskDefinitionStepEntity)
     }
 
     override fun findById(id: Long): Optional<TaskDefinitionStep> {
-        val taskStepDefinitionEntity = repository.findById(id)
-        return taskStepDefinitionEntity.map { mapper.toDomain(it) }
+        val taskDefinitionStepEntityOptional = repository.findById(id)
+        return taskDefinitionStepEntityOptional.map { mapper.toDomain(it) }
     }
 
     override fun findAllByTaskDefinitionId(taskDefinitionId: Long): List<TaskDefinitionStep> {
-        val taskStepDefinitionEntities = repository.findAllByTaskDefinitionId(taskDefinitionId)
-        return taskStepDefinitionEntities.map { mapper.toDomain(it) }
+        val taskDefinitionStepEntityList = repository.findAllByTaskDefinitionId(taskDefinitionId)
+        return taskDefinitionStepEntityList.map { mapper.toDomain(it) }
     }
 
     override fun findByStepName(stepName: String): TaskDefinitionStep {
-        val taskStepDefinitionEntity = repository.findByStepName(stepName).orElseThrow {
+        val taskDefinitionStepEntity = repository.findByStepName(stepName).orElseThrow {
             NoSuchElementException()
         }
-        return mapper.toDomain(taskStepDefinitionEntity)
+        return mapper.toDomain(taskDefinitionStepEntity)
     }
 
     override fun deleteById(id: Long) {

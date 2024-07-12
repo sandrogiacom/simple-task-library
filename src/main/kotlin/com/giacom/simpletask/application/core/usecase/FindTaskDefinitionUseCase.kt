@@ -8,7 +8,7 @@ import com.giacom.simpletask.application.ports.output.FindTaskDefinitionOutput
 
 class FindTaskDefinitionUseCase(
     private val findTaskDefinitionOutput: FindTaskDefinitionOutput,
-    private val findTaskStepDefinitionInput: FindTaskDefinitionStepInput,
+    private val findTaskDefinitionStepInput: FindTaskDefinitionStepInput,
     private val findTaskDefinitionAttributeInput: FindTaskDefinitionAttributeInput
 ) : FindTaskDefinitionInput {
 
@@ -32,7 +32,7 @@ class FindTaskDefinitionUseCase(
     }
 
     private fun withSteps(taskDefinition: TaskDefinition) {
-        taskDefinition.taskSteps = findTaskStepDefinitionInput.findAllByTaskDefinitionId(taskDefinition.id!!)
+        taskDefinition.taskSteps = findTaskDefinitionStepInput.findAllByTaskDefinitionId(taskDefinition.id!!)
     }
 
     private fun withAttributes(taskDefinition: TaskDefinition) {
