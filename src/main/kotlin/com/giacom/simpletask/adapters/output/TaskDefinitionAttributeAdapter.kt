@@ -17,24 +17,24 @@ class TaskDefinitionAttributeAdapter(
 ) : SaveTaskDefinitionAttributeOutput, FindTaskDefinitionAttributeOutput, DeleteTaskDefinitionAttributeOutput {
 
     @Transactional
-    override fun save(taskAttributeDefinition: TaskDefinitionAttribute): TaskDefinitionAttribute {
-        val taskAttributeDefinitionEntity = repository.save(mapper.toEntity(taskAttributeDefinition))
-        return mapper.toDomain(taskAttributeDefinitionEntity)
+    override fun save(taskDefinitionAttribute: TaskDefinitionAttribute): TaskDefinitionAttribute {
+        val taskDefinitionAttributeEntity = repository.save(mapper.toEntity(taskDefinitionAttribute))
+        return mapper.toDomain(taskDefinitionAttributeEntity)
     }
 
     override fun findById(id: Long): Optional<TaskDefinitionAttribute> {
-        val taskAttributeDefinitionEntity = repository.findById(id)
-        return taskAttributeDefinitionEntity.map { mapper.toDomain(it) }
+        val taskDefinitionAttributeEntity = repository.findById(id)
+        return taskDefinitionAttributeEntity.map { mapper.toDomain(it) }
     }
 
     override fun findAllByTaskDefinitionId(taskDefinitionId: Long): List<TaskDefinitionAttribute> {
-        val taskAttributeDefinitionEntities = repository.findAllByTaskDefinitionId(taskDefinitionId)
-        return taskAttributeDefinitionEntities.map { mapper.toDomain(it) }
+        val taskDefinitionAttributeEntities = repository.findAllByTaskDefinitionId(taskDefinitionId)
+        return taskDefinitionAttributeEntities.map { mapper.toDomain(it) }
     }
 
     override fun findByAttributeName(attributeName: String): TaskDefinitionAttribute {
-        val taskAttributeDefinitionEntity = repository.findByAttributeName(attributeName)
-        return mapper.toDomain(taskAttributeDefinitionEntity)
+        val definitionAttributeEntity = repository.findByAttributeName(attributeName)
+        return mapper.toDomain(definitionAttributeEntity)
     }
 
     override fun deleteById(id: Long) {

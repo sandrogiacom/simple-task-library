@@ -13,7 +13,7 @@ class CreateTaskInstanceUseCase(
     private val findTaskDefinitionInput: FindTaskDefinitionInput,
     private val createTaskInstanceOutput: SaveTaskInstanceOutput,
     private val createTaskStepInstanceOutput: SaveTaskInstanceStepOutput,
-    private val createTaskAttributeInstanceOutput: SaveTaskInstanceAttributeOutput
+    private val saveTaskInstanceAttributeOutput: SaveTaskInstanceAttributeOutput
 ) : CreateTaskInstanceInput {
 
     override fun create(taskName: String): TaskInstance {
@@ -36,11 +36,11 @@ class CreateTaskInstanceUseCase(
                 )
             )
         }
-        taskDefinition.attributes?.forEach { taskAttributeDefinition ->
-            createTaskAttributeInstanceOutput.save(
+        taskDefinition.attributes?.forEach { taskDefinitionAttribute ->
+            saveTaskInstanceAttributeOutput.save(
                 TaskInstanceAttribute(
                     taskInstanceId = instance.id,
-                    attributeName = taskAttributeDefinition.attributeName
+                    attributeName = taskDefinitionAttribute.attributeName
                 )
             )
         }

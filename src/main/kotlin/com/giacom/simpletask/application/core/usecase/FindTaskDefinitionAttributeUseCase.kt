@@ -5,19 +5,19 @@ import com.giacom.simpletask.application.ports.input.FindTaskDefinitionAttribute
 import com.giacom.simpletask.application.ports.output.FindTaskDefinitionAttributeOutput
 
 class FindTaskDefinitionAttributeUseCase(
-    private val findTaskAttributeDefinitionOutput: FindTaskDefinitionAttributeOutput
+    private val findTaskDefinitionAttributeOutput: FindTaskDefinitionAttributeOutput
 ) : FindTaskDefinitionAttributeInput {
 
     override fun findAllByTaskDefinitionId(taskDefinitionId: Long): List<TaskDefinitionAttribute> {
-        return findTaskAttributeDefinitionOutput.findAllByTaskDefinitionId(taskDefinitionId)
+        return findTaskDefinitionAttributeOutput.findAllByTaskDefinitionId(taskDefinitionId)
     }
 
     override fun findById(id: Long): TaskDefinitionAttribute {
-        return findTaskAttributeDefinitionOutput.findById(id).orElseThrow { RuntimeException("Task definition Attribute not found") }
+        return findTaskDefinitionAttributeOutput.findById(id).orElseThrow { RuntimeException("Task definition Attribute not found") }
     }
 
     override fun findByAttributeName(attributeName: String): TaskDefinitionAttribute {
-        return findTaskAttributeDefinitionOutput.findByAttributeName(attributeName)
+        return findTaskDefinitionAttributeOutput.findByAttributeName(attributeName)
     }
 
 

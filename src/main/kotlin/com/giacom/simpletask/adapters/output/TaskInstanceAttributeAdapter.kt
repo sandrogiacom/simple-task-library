@@ -12,8 +12,8 @@ class TaskInstanceAttributeAdapter(
     private val mapper: TaskInstanceAttributeEntityMapper
 ) : SaveTaskInstanceAttributeOutput {
 
-    override fun save(taskAttributeInstance: TaskInstanceAttribute): TaskInstanceAttribute {
-        val instanceEntity = repository.save(mapper.toEntity(taskAttributeInstance))
+    override fun save(taskInstanceAttribute: TaskInstanceAttribute): TaskInstanceAttribute {
+        val instanceEntity = repository.save(mapper.toEntity(taskInstanceAttribute))
         return mapper.toDomain(instanceEntity)
     }
 

@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration
 class DeleteTaskDefinitionAttributeConfig {
 
     @Bean
-    fun deleteTaskAttributeDefinitionInput(deleteTaskAttributeDefinitionOutput: DeleteTaskDefinitionAttributeOutput): DeleteTaskDefinitionAttributeUseCase {
-        return DeleteTaskDefinitionAttributeUseCase(deleteTaskAttributeDefinitionOutput)
+    fun deleteTaskAttributeDefinitionInput(deleteTaskDefinitionAttributeOutput: DeleteTaskDefinitionAttributeOutput): DeleteTaskDefinitionAttributeUseCase {
+        return DeleteTaskDefinitionAttributeUseCase(deleteTaskDefinitionAttributeOutput)
     }
 
 }

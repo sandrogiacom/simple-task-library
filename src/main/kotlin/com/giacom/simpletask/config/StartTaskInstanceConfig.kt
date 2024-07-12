@@ -16,9 +16,9 @@ class StartTaskInstanceConfig {
     fun startTaskInstanceInput(
         findTaskInstanceInput: FindTaskInstanceInput,
         taskInstanceOutput: SaveTaskInstanceOutput,
-        taskAttributeInstanceOutput: SaveTaskInstanceAttributeOutput
+        saveTaskInstanceAttributeOutput: SaveTaskInstanceAttributeOutput
     ): StartTaskInstanceUseCase {
-        return StartTaskInstanceUseCase(findTaskInstanceInput, taskInstanceOutput, taskAttributeInstanceOutput)
+        return StartTaskInstanceUseCase(findTaskInstanceInput, taskInstanceOutput, saveTaskInstanceAttributeOutput)
     }
 
 }

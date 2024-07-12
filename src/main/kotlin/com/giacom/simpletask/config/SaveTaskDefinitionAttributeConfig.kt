@@ -14,13 +14,13 @@ class SaveTaskDefinitionAttributeConfig {
 
     @Bean
     fun saveTaskAttributeDefinitionInput(
-        saveTaskAttributeDefinitionOutput: SaveTaskDefinitionAttributeOutput,
-        findTaskAttributeDefinitionInput: FindTaskDefinitionAttributeInput,
+        saveTaskDefinitionAttributeOutput: SaveTaskDefinitionAttributeOutput,
+        findTaskDefinitionAttributeInput: FindTaskDefinitionAttributeInput,
         findTaskDefinitionInput: FindTaskDefinitionInput
     ): SaveTaskDefinitionAttributeUseCase {
         return SaveTaskDefinitionAttributeUseCase(
-            saveTaskAttributeDefinitionOutput,
-            findTaskAttributeDefinitionInput,
+            saveTaskDefinitionAttributeOutput,
+            findTaskDefinitionAttributeInput,
             findTaskDefinitionInput
         )
     }

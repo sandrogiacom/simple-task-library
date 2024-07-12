@@ -7,15 +7,15 @@ import com.giacom.simpletask.application.ports.input.SaveTaskDefinitionAttribute
 import com.giacom.simpletask.application.ports.output.SaveTaskDefinitionAttributeOutput
 
 class SaveTaskDefinitionAttributeUseCase(
-    private val saveTaskAttributeDefinitionOutput: SaveTaskDefinitionAttributeOutput,
-    private val findTaskAttributeDefinitionInput: FindTaskDefinitionAttributeInput,
+    private val saveTaskDefinitionAttributeOutput: SaveTaskDefinitionAttributeOutput,
+    private val findTaskDefinitionAttributeInput: FindTaskDefinitionAttributeInput,
     private val findTaskDefinitionInput: FindTaskDefinitionInput
 ) : SaveTaskDefinitionAttributeInput {
 
-    override fun create(taskDefinitionId: Long, taskAttributeDefinition: TaskDefinitionAttribute): TaskDefinitionAttribute {
+    override fun create(taskDefinitionId: Long, taskDefinitionAttribute: TaskDefinitionAttribute): TaskDefinitionAttribute {
         val taskDefinition = findTaskDefinitionInput.findById(taskDefinitionId)
         try {
-            val existTaskAttribute = findTaskAttributeDefinitionInput.findByAttributeName(taskAttributeDefinition.attributeName)
+            val existTaskAttribute = findTaskDefinitionAttributeInput.findByAttributeName(taskDefinitionAttribute.attributeName)
             if (existTaskAttribute != null) {
                 throw RuntimeException("Task definition Attribute already exists!")
             }
@@ -24,15 +24,15 @@ class SaveTaskDefinitionAttributeUseCase(
         } catch (ex: Exception) {
             throw ex
         }
-        return saveTaskAttributeDefinitionOutput.save(
-            taskAttributeDefinition.copy(taskDefinition = taskDefinition)
+        return saveTaskDefinitionAttributeOutput.save(
+            taskDefinitionAttribute.copy(taskDefinition = taskDefinition)
         )
     }
 
-    override fun update(id: Long, taskAttributeDefinition: TaskDefinitionAttribute): TaskDefinitionAttribute {
-        val existTaskAttribute = findTaskAttributeDefinitionInput.findById(id)
-        return saveTaskAttributeDefinitionOutput.save(
-            taskAttributeDefinition.copy(
+    override fun update(id: Long, taskDefinitionAttribute: TaskDefinitionAttribute): TaskDefinitionAttribute {
+        val existTaskAttribute = findTaskDefinitionAttributeInput.findById(id)
+        return saveTaskDefinitionAttributeOutput.save(
+            taskDefinitionAttribute.copy(
                 id = existTaskAttribute.id,
                 taskDefinition = existTaskAttribute.taskDefinition
             )

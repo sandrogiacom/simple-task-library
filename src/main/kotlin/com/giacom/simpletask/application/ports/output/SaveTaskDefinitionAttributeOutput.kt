@@ -4,6 +4,6 @@ import com.giacom.simpletask.application.core.domain.TaskDefinitionAttribute
 
 interface SaveTaskDefinitionAttributeOutput {
 
-    fun save(taskAttributeDefinition: TaskDefinitionAttribute): TaskDefinitionAttribute
+    fun save(taskDefinitionAttribute: TaskDefinitionAttribute): TaskDefinitionAttribute
 
 }

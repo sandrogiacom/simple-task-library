@@ -16,10 +16,10 @@ class FindTaskDefinitionConfig {
     @Bean
     fun findTaskDefinitionInput(
         findTaskDefinitionOutput: FindTaskDefinitionOutput,
-        findTaskStepDefinitionInput: FindTaskDefinitionStepInput,
-        findTaskAttributeDefinitionInput: FindTaskDefinitionAttributeInput
+        taskDefinitionStepInput: FindTaskDefinitionStepInput,
+        findTaskDefinitionAttributeInput: FindTaskDefinitionAttributeInput
     ): FindTaskDefinitionInput {
-        return FindTaskDefinitionUseCase(findTaskDefinitionOutput, findTaskStepDefinitionInput, findTaskAttributeDefinitionInput)
+        return FindTaskDefinitionUseCase(findTaskDefinitionOutput, taskDefinitionStepInput, findTaskDefinitionAttributeInput)
     }
 
 }

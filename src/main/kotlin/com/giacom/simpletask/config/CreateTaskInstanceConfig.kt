@@ -17,14 +17,14 @@ class CreateTaskInstanceConfig {
     fun createTaskInstanceInput(
         findTaskDefinitionInput: FindTaskDefinitionInput,
         createTaskInstanceOutput: SaveTaskInstanceOutput,
-        createTaskStepInstanceOutput: SaveTaskInstanceStepOutput,
-        createTaskAttributeInstanceOutput: SaveTaskInstanceAttributeOutput
+        saveTaskInstanceStepOutput: SaveTaskInstanceStepOutput,
+        saveTaskInstanceAttributeOutput: SaveTaskInstanceAttributeOutput
     ): CreateTaskInstanceUseCase {
         return CreateTaskInstanceUseCase(
             findTaskDefinitionInput,
             createTaskInstanceOutput,
-            createTaskStepInstanceOutput,
-            createTaskAttributeInstanceOutput
+            saveTaskInstanceStepOutput,
+            saveTaskInstanceAttributeOutput
         )
     }
 

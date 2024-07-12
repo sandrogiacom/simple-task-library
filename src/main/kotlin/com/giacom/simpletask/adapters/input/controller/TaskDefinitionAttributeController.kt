@@ -23,20 +23,20 @@ class TaskDefinitionAttributeController(
     fun create(
         @Valid @RequestBody request: TaskDefinitionAttributeCreateRequest, @PathVariable taskDefinitionId: Long
     ): ResponseEntity<TaskDefinitionAttributeResponse> {
-        val taskAttributeDefinition = saveAttributeInput.create(taskDefinitionId, mapper.toDomain(request))
-        return ResponseEntity.ok(mapper.toResponse(taskAttributeDefinition))
+        val taskDefinitionAttribute = saveAttributeInput.create(taskDefinitionId, mapper.toDomain(request))
+        return ResponseEntity.ok(mapper.toResponse(taskDefinitionAttribute))
     }
 
     @GetMapping("/{taskDefinitionId}/attributes")
     fun findAllSteps(@PathVariable taskDefinitionId: Long): ResponseEntity<List<TaskDefinitionAttributeResponse>> {
-        val taskAttributeDefinitions = findAttributeInput.findAllByTaskDefinitionId(taskDefinitionId)
-        return ResponseEntity.ok(mapper.toResponseList(taskAttributeDefinitions))
+        val taskDefinitionAttributes = findAttributeInput.findAllByTaskDefinitionId(taskDefinitionId)
+        return ResponseEntity.ok(mapper.toResponseList(taskDefinitionAttributes))
     }
 
     @GetMapping("/attributes/{id}")
     fun findById(@PathVariable id: Long): ResponseEntity<TaskDefinitionAttributeResponse> {
-        val taskAttributeDefinition = findAttributeInput.findById(id)
-        return ResponseEntity.ok(mapper.toResponse(taskAttributeDefinition))
+        val taskDefinitionAttribute = findAttributeInput.findById(id)
+        return ResponseEntity.ok(mapper.toResponse(taskDefinitionAttribute))
     }
 
     @PutMapping("/attributes/{id}")
@@ -44,8 +44,8 @@ class TaskDefinitionAttributeController(
         @PathVariable id: Long,
         @Valid @RequestBody request: TaskDefinitionAttributeCreateRequest
     ): ResponseEntity<TaskDefinitionAttributeResponse> {
-        val taskAttributeDefinition = saveAttributeInput.update(id, mapper.toDomain(request))
-        return ResponseEntity.ok(mapper.toResponse(taskAttributeDefinition))
+        val taskDefinitionAttribute = saveAttributeInput.update(id, mapper.toDomain(request))
+        return ResponseEntity.ok(mapper.toResponse(taskDefinitionAttribute))
     }
 
     @DeleteMapping("/attributes/{id}")

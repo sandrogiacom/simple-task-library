@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component
 @Component
 interface TaskDefinitionAttributeEntityMapper {
 
-    fun toEntity(taskAttributeDefinition: TaskDefinitionAttribute): TaskDefinitionAttributeEntity
-    fun toDomain(taskAttributeDefinitionEntity: TaskDefinitionAttributeEntity): TaskDefinitionAttribute
+    fun toEntity(taskDefinitionAttribute: TaskDefinitionAttribute): TaskDefinitionAttributeEntity
+    fun toDomain(taskDefinitionAttributeEntity: TaskDefinitionAttributeEntity): TaskDefinitionAttribute
 }

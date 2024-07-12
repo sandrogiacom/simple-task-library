@@ -11,11 +11,11 @@ interface TaskDefinitionAttributeMapper {
 
     @Mapping(target = "taskDefinition", ignore = true)
     @Mapping(target = "id", ignore = true)
-    fun toDomain(taskAttributeDefinitionCreateRequest: TaskDefinitionAttributeCreateRequest): TaskDefinitionAttribute
+    fun toDomain(request: TaskDefinitionAttributeCreateRequest): TaskDefinitionAttribute
 
     @Mapping(target = "taskDefinitionId", source = "taskDefinition.id")
-    fun toResponse(taskAttributeDefinition: TaskDefinitionAttribute): TaskDefinitionAttributeResponse
+    fun toResponse(taskDefinitionAttribute: TaskDefinitionAttribute): TaskDefinitionAttributeResponse
 
     @Mapping(target = "taskDefinitionId", source = "taskDefinition.id")
-    fun toResponseList(taskAttributeDefinitions: List<TaskDefinitionAttribute>): List<TaskDefinitionAttributeResponse>
+    fun toResponseList(definitionAttributeList: List<TaskDefinitionAttribute>): List<TaskDefinitionAttributeResponse>
 }

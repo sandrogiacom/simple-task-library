@@ -10,7 +10,7 @@ import com.giacom.simpletask.application.ports.output.SaveTaskInstanceOutput
 class StartTaskInstanceUseCase(
     private val findTaskInstanceInput: FindTaskInstanceInput,
     private val taskInstanceOutput: SaveTaskInstanceOutput,
-    private val taskAttributeInstanceOutput: SaveTaskInstanceAttributeOutput
+    private val taskInstanceAttributeOutput: SaveTaskInstanceAttributeOutput
 ) : StartTaskInstanceInput {
 
     override fun startTask(taskInstanceId: Long, attributes: Map<String, String>?): TaskInstance {
@@ -33,7 +33,7 @@ class StartTaskInstanceUseCase(
                 taskInstance.addAttribute(
                     attribute
                 )
-                taskAttributeInstanceOutput.save(attribute)
+                taskInstanceAttributeOutput.save(attribute)
             }
         }
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 @Component
 interface TaskInstanceAttributeEntityMapper {
 
-    fun toEntity(taskAttributeInstance: TaskInstanceAttribute): TaskInstanceAttributeEntity
+    fun toEntity(taskInstanceAttribute: TaskInstanceAttribute): TaskInstanceAttributeEntity
 
-    fun toDomain(taskAttributeInstanceEntity: TaskInstanceAttributeEntity): TaskInstanceAttribute
+    fun toDomain(taskInstanceAttributeEntity: TaskInstanceAttributeEntity): TaskInstanceAttribute
 }

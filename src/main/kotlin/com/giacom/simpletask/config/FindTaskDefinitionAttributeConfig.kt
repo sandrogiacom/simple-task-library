@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration
 class FindTaskDefinitionAttributeConfig {
 
     @Bean
-    fun findTaskAttributeDefinitionInput(findTaskAttributeDefinitionOutput: FindTaskDefinitionAttributeOutput): FindTaskDefinitionAttributeUseCase {
-        return FindTaskDefinitionAttributeUseCase(findTaskAttributeDefinitionOutput)
+    fun taskDefinitionAttributeInput(findTaskDefinitionAttributeOutput: FindTaskDefinitionAttributeOutput): FindTaskDefinitionAttributeUseCase {
+        return FindTaskDefinitionAttributeUseCase(findTaskDefinitionAttributeOutput)
     }
 
 }
