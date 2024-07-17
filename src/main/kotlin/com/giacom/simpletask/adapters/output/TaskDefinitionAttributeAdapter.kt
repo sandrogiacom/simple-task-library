@@ -34,6 +34,7 @@ class TaskDefinitionAttributeAdapter(
 
     override fun findByAttributeName(attributeName: String): TaskDefinitionAttribute {
         val definitionAttributeEntity = repository.findByAttributeName(attributeName)
+            .orElseThrow { NoSuchElementException("TaskDefinitionAttribute not found by attributeName: $attributeName") }
         return mapper.toDomain(definitionAttributeEntity)
     }
 

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface TaskInstanceStepRepository : CrudRepository<TaskInstanceStepEntity, Long> {
+    fun findAllByTaskInstanceId(taskInstanceId: Long): List<TaskInstanceStepEntity>
 }

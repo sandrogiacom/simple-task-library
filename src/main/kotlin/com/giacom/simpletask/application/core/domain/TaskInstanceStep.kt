@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 data class TaskInstanceStep(
     val id: Long = 0,
     val taskInstanceId: Long,
-    val taskDefinitionStepId: Long,
+    val taskDefinitionStep: TaskDefinitionStep,
     val status: TaskStatus = TaskStatus.CREATED,
     val startedAt: LocalDateTime? = null,
     val endedAt: LocalDateTime? = null

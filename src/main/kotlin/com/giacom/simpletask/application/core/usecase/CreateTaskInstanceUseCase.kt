@@ -1,7 +1,7 @@
 package com.giacom.simpletask.application.core.usecase
 
-import com.giacom.simpletask.application.core.domain.TaskInstanceAttribute
 import com.giacom.simpletask.application.core.domain.TaskInstance
+import com.giacom.simpletask.application.core.domain.TaskInstanceAttribute
 import com.giacom.simpletask.application.core.domain.TaskInstanceStep
 import com.giacom.simpletask.application.ports.input.CreateTaskInstanceInput
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
@@ -32,7 +32,7 @@ class CreateTaskInstanceUseCase(
             saveTaskInstanceStepOutput.save(
                 TaskInstanceStep(
                     taskInstanceId = instance.id,
-                    taskDefinitionStepId = taskDefinitionStep.id!!
+                    taskDefinitionStep = taskDefinitionStep
                 )
             )
         }

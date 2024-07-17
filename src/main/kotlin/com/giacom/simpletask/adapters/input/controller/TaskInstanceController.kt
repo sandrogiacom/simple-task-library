@@ -34,7 +34,8 @@ class TaskInstanceController(
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Long): ResponseEntity<TaskInstanceResponse> {
         val response = findTaskInstanceInput.findById(id)
-        return ResponseEntity.ok(mapper.toTaskInstanceResponse(response))
+        val toTaskInstanceResponse = mapper.toTaskInstanceResponse(response)
+        return ResponseEntity.ok(toTaskInstanceResponse)
     }
 
 }

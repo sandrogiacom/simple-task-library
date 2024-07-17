@@ -5,8 +5,8 @@ import java.time.LocalDateTime
 data class TaskInstance(
     val id: Long = 0,
     val taskDefinition: TaskDefinition,
-    val attributes: List<TaskInstanceAttribute>? = emptyList(),
-    val steps: List<TaskInstanceStep>? = emptyList(),
+    var attributes: List<TaskInstanceAttribute>? = mutableListOf(),
+    var steps: List<TaskInstanceStep>? = mutableListOf(),
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val status: TaskStatus = TaskStatus.CREATED,
     val startedAt: LocalDateTime? = null,
@@ -28,10 +28,16 @@ data class TaskInstance(
     }
 
     fun addAttribute(attribute: TaskInstanceAttribute) {
+        if (attributes == null) {
+            attributes = mutableListOf()
+        }
         (attributes as MutableList).add(attribute)
     }
 
     fun addStep(step: TaskInstanceStep) {
+        if (steps == null) {
+            steps = mutableListOf()
+        }
         (steps as MutableList).add(step)
     }
 }

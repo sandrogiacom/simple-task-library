@@ -12,9 +12,11 @@ import java.time.LocalDateTime
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class TaskInstanceResponse(
     val id: Long = 0,
-    val taskDefinition: TaskDefinition,
-    val attributes: List<TaskInstanceAttribute>? = emptyList(),
-    val steps: List<TaskInstanceStep>? = emptyList(),
+    val taskDefinitionId: Long,
+    val taskDefinitionName: String,
+    val taskDefinitionDescription: String,
+    var attributes: List<TaskInstanceAttributeResponse>? = emptyList(),
+    var steps: List<TaskInstanceStepResponse>? = emptyList(),
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val status: TaskStatus = TaskStatus.CREATED,
     val startedAt: LocalDateTime? = null,
