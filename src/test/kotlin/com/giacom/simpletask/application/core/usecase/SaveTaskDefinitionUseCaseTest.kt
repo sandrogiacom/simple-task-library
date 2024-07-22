@@ -21,32 +21,20 @@ class SaveTaskDefinitionUseCaseTest {
     @Test
     fun `should create a task definition`() {
         // Given
-        val taskDefinition = TaskDefinitionBuilder(
-            id = 1,
-            taskName = "Task 1",
-            taskDescription = "Task 1 description",
-        ).build()
+        val taskDefinition = TaskDefinitionBuilder().build()
 
         every { saveTaskDefinitionOutput.save(any()) } returns taskDefinition
         every { findTaskDefinitionInput.findByName(any()) } throws NoSuchElementException()
 
         taskDefinition.addTaskStep(
             TaskDefinitionStepBuilder(
-                id = 1,
-                stepName = "Task Step 1",
-                stepDescription = "Task Step 1 description",
-                taskDefinition = taskDefinition,
-                stepHandler = "Task Step 1 handler"
-            ).build()
+                taskDefinition = taskDefinition
+            ).withId(1).build()
         )
         taskDefinition.addTaskStep(
             TaskDefinitionStepBuilder(
-                id = 2,
-                stepName = "Task Step 2",
-                stepDescription = "Task Step 2 description",
                 taskDefinition = taskDefinition,
-                stepHandler = "Task Step 2 handler"
-            ).build()
+            ).withId(2).build()
         )
 
         // When

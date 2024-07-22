@@ -11,7 +11,7 @@ data class TaskDefinition(
         (taskSteps as MutableList).add(taskStep)
     }
 
-    fun addAttribute(attribute: TaskDefinitionAttribute) {
+    fun addTaskAttribute(attribute: TaskDefinitionAttribute) {
         (attributes as MutableList).add(attribute)
     }
 
