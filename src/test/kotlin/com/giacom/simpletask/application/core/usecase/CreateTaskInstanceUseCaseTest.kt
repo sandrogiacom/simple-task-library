@@ -1,8 +1,9 @@
+package com.giacom.simpletask.application.core.usecase
+
 import com.giacom.simpletask.application.core.domain.TaskDefinition
 import com.giacom.simpletask.application.core.domain.TaskInstance
 import com.giacom.simpletask.application.core.domain.TaskInstanceAttribute
 import com.giacom.simpletask.application.core.domain.TaskInstanceStep
-import com.giacom.simpletask.application.core.usecase.CreateTaskInstanceUseCase
 import com.giacom.simpletask.application.ports.input.FindTaskDefinitionInput
 import com.giacom.simpletask.application.ports.output.SaveTaskInstanceAttributeOutput
 import com.giacom.simpletask.application.ports.output.SaveTaskInstanceOutput

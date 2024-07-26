@@ -16,7 +16,6 @@ class StartTaskInstanceUseCase(
     override fun startTask(taskInstanceId: Long, attributes: Map<String, String>?): TaskInstance {
         val taskInstance = findTaskInstanceInput.findById(taskInstanceId)
         val started = taskInstance.startTask()
-        started.attributes
         taskInstanceOutput.save(started)
         taskInstanceAttributes(taskInstance, attributes)
         return started
